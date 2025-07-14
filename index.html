@@ -4,29 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sartaj Couture</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lora&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: 'Cormorant Garamond', serif;
-      background: #FAF9F6;
-      color: #111;
+      font-family: 'EB Garamond', serif;
+      background: #121212;
+      color: #f5f5f5;
       overflow-x: hidden;
     }
     h1, h2, h3 {
-      font-family: 'Cormorant Garamond', serif;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
     }
     p, label, input, textarea, select, blockquote {
-      font-family: 'Lora', serif;
+      font-family: 'Playfair Display', serif;
     }
-
-    /* Intro Screen */
     .intro-screen {
       position: fixed;
       top: 0; left: 0;
       width: 100%; height: 100%;
-      background: #111;
-      color: #D4AF37;
+      background: #000;
+      color: #e4c590;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -34,9 +34,9 @@
       animation: fadeOut 1s ease 3s forwards;
     }
     .intro-logo {
-      font-size: 60px;
+      font-size: 64px;
       font-weight: 700;
-      letter-spacing: 3px;
+      letter-spacing: 2px;
       opacity: 0;
       animation: fadeInSlide 2s ease forwards;
     }
@@ -47,194 +47,204 @@
     @keyframes fadeOut {
       to { opacity: 0; visibility: hidden; }
     }
-
-    /* Hero Section */
     .hero {
       background: url('https://images.unsplash.com/photo-1602810313369-dad0c3d8a185') no-repeat center center/cover;
-      color: white; text-align: center;
-      padding: 140px 20px 100px;
-    }
-    .hero h1 { font-size: 48px; margin-bottom: 10px; }
-    .hero p { font-size: 20px; margin-bottom: 25px; }
-    .cta-button {
-      background: #D4AF37; color: #111;
-      padding: 12px 28px; border-radius: 30px;
-      text-decoration: none; font-weight: bold;
-      font-size: 16px;
-    }
-
-    nav {
-      background: #FAF9F6;
+      color: white;
       text-align: center;
-      padding: 10px 0;
+      padding: 200px 20px 120px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero h1 {
+      font-size: 58px;
+      margin-bottom: 20px;
+      letter-spacing: 3px;
+    }
+    .hero p {
+      font-size: 20px;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+    .cta-button {
+      background: #e4c590;
+      color: #121212;
+      padding: 14px 30px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+    .cta-button:hover {
+      background: #d3b97b;
+    }
+    nav {
+      background: #1a1a1a;
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+      border-bottom: 1px solid #333;
     }
     nav a {
-      color: #111;
+      color: #e4c590;
       padding: 16px 24px;
       text-decoration: none;
       font-weight: bold;
       font-size: 16px;
+      transition: border-bottom 0.3s ease;
       border-bottom: 3px solid transparent;
     }
-    nav a:hover { border-bottom: 3px solid #D4AF37; }
-
+    nav a:hover {
+      border-bottom: 3px solid #e4c590;
+    }
     section {
-      padding: 80px 20px;
+      padding: 100px 20px;
       max-width: 1200px;
       margin: auto;
     }
     h2 {
-      font-size: 32px;
-      margin-bottom: 30px;
-      border-left: 5px solid #d4af37;
+      font-size: 34px;
+      margin-bottom: 40px;
+      border-left: 5px solid #e4c590;
       padding-left: 15px;
+      text-transform: uppercase;
     }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 30px;
+      gap: 40px;
     }
     .gallery img {
       width: 100%;
-      border-radius: 12px;
+      border-radius: 16px;
       transition: transform 0.4s ease;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
     }
     .gallery img:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
     }
     blockquote {
       font-style: italic;
       margin: 20px auto;
-      padding: 10px 20px;
-      border-left: 5px solid #d4af37;
-      background: #f9f9f9;
+      padding: 20px 30px;
+      border-left: 5px solid #e4c590;
+      background: #1f1f1f;
     }
-
-    input, textarea, select {
-      width: 100%;
-      padding: 14px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 40px;
     }
-    input[type="submit"] {
-      background-color: #111;
-      color: white;
-      padding: 14px 28px;
-      font-size: 16px;
-      cursor: pointer;
-      border-radius: 6px;
+    .carousel blockquote {
+      flex: 0 0 80%;
+      scroll-snap-align: start;
+      background: #1a1a1a;
     }
-    input[type="submit"]:hover {
-      background-color: #333;
+    [data-aos] {
+      opacity: 0;
+      transition-property: opacity, transform;
     }
-
-    footer {
-      background-color: #111;
-      color: white;
-      text-align: center;
-      padding: 30px 20px;
+    [data-aos].aos-animate {
+      opacity: 1;
     }
-  </style>
+      @keyframes crownDrop {
+      0% { opacity: 0; transform: translateY(-50px) scale(0.8); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .crown {
+      width: 60px;
+      margin-bottom: 10px;
+      animation: crownDrop 1.5s ease forwards;
+    }
+</style>
 </head>
 <body>
-
-  <!-- Intro Animation -->
   <div class="intro-screen">
-    <div class="intro-logo">Sartaj Couture</div>
+    <div class="intro-logo">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Heraldic_Royal_Crown.svg/120px-Heraldic_Royal_Crown.svg.png" alt="Royal Crown" class="crown">
+      Sartaj Couture
+    </div>
   </div>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Where Royalty Meets Tailoring</h1>
-      <p>Luxury Menswear Crafted in Hyderabad. Delivered Worldwide.</p>
-      <a href="#order" class="cta-button">Book Your Stitch</a>
-    </div>
+  <section class="hero" style="position:relative; height:100vh; overflow:hidden;">
+  <video autoplay muted loop playsinline style="position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:-1;">
+    <source src="https://cdn.coverr.co/videos/coverr-elegant-groom-getting-dressed-9159/1080p.mp4" type="video/mp4">
+  </video>
+  <div class="hero-content" data-aos="fade-up" style="position:relative; z-index:1; text-align:center; padding:20vh 20px;">
+    <h1 style="font-size:64px; letter-spacing:5px; text-transform:uppercase; color:#f5f5f5;">Bespoke Luxury</h1>
+    <p style="max-width:600px; margin:auto; font-size:20px; margin-top:20px;">Tailored Elegance. Delivered Worldwide.</p>
+    <a href="#order" class="cta-button" style="margin-top:30px; display:inline-block;">Book Your Stitch</a>
+  </div>
+</section>
+
+  <section id="services" data-aos="fade-up">
+  <h2>Our Services</h2>
+  <p>At Sartaj Couture, every stitch narrates a story of legacy and refinement. Our services include:</p>
+  <ul style="list-style: none; padding-left: 0; line-height: 2;">
+    <li>• Tailored Sherwanis and Indo-Western outfits for weddings and events</li>
+    <li>• Bespoke Suits, Blazers, and Formal Wear</li>
+    <li>• Elegant Kurtas and Bandhgalas with fine handwork</li>
+    <li>• Personalized virtual consultations and style curation</li>
+    <li>• International doorstep delivery with luxury packaging</li>
+  </ul>
+</section>
+
+  <section id="why-us" data-aos="fade-up">
+    <h2>Why Choose Us</h2>
+    <p>Sartaj Couture blends traditional craftsmanship with modern elegance. Our commitment to bespoke tailoring, hand-picked fabrics, and decades of experience ensures a regal experience for every client. With personalized fittings, attention to detail, and seamless international delivery, we bring the luxury of Indian couture to your doorstep.</p>
   </section>
 
-  <!-- Navigation -->
-  <nav>
-    <a href="#about">About</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#order">Order</a>
-    <a href="#international">International</a>
-    <a href="#contact">Contact</a>
-  </nav>
-
-  <!-- About -->
-  <section id="about">
-    <h2>About Us</h2>
-    <p>Sartaj Couture is a heritage tailoring house based in Hyderabad, specializing in premium custom-stitched menswear. From formal suits to traditional sherwanis, we craft garments with precision and elegance. Trusted by clients across India and the United States.</p>
-  </section>
-
-  <!-- Gallery -->
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery">
-      <img src="https://via.placeholder.com/300x400?text=Sherwani" alt="Sherwani">
-      <img src="https://via.placeholder.com/300x400?text=Kurta" alt="Kurta">
-      <img src="https://via.placeholder.com/300x400?text=Suit" alt="Suit">
-    </div>
-  </section>
-
-  <!-- Order Form -->
-  <section id="order">
-    <h2>Place an Order</h2>
-    <form action="#">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" required>
-      <label for="email">Email</label>
-      <input type="email" id="email" required>
-      <label for="item">Type of Outfit</label>
-      <select id="item" required>
-        <option value="">-- Select --</option>
-        <option value="Sherwani">Sherwani</option>
-        <option value="Kurta">Kurta</option>
-        <option value="Suit">Suit</option>
-        <option value="Shirt">Shirt</option>
-        <option value="Pant">Pant</option>
-      </select>
-      <label for="measurements">Tailoring Details (Size, Style, etc.)</label>
-      <textarea id="measurements" rows="4"></textarea>
-      <label for="address">Shipping Address</label>
-      <textarea id="address" rows="3" required></textarea>
-      <input type="submit" value="Place My Order">
-    </form>
-  </section>
-
-  <!-- Testimonials -->
-  <section id="testimonials">
+  <section id="testimonials" data-aos="fade-up">
     <h2>Client Testimonials</h2>
-    <blockquote>“Sartaj made the sherwani for my wedding in New York – unmatched quality and fit!”<br><small>– Imran Q., New Jersey</small></blockquote>
-    <blockquote>“Top-notch craftsmanship. My go-to tailor for every formal occasion.”<br><small>– Arjun R., Hyderabad</small></blockquote>
+    <div class="carousel">
+      <blockquote>“Sartaj made the sherwani for my wedding in New York – unmatched quality and fit!”<br><small>– Imran Q., New Jersey</small><br><span style='color:#e4c590;'>★★★★★</span></blockquote>
+      <blockquote>“Top-notch craftsmanship. My go-to tailor for every formal occasion.”<br><small>– Arjun R., Hyderabad</small><br><span style='color:#e4c590;'>★★★★★</span></blockquote>
+      <blockquote>“The kurtas are classy and elegant. Sartaj is our go-to designer for family events.”<br><small>– Ahmed N., Chicago</small><br><span style='color:#e4c590;'>★★★★☆</span></blockquote>
+    </div>
   </section>
 
-  <!-- International Orders -->
-  <section id="international">
-    <h2>International Orders (USA & Beyond)</h2>
-    <p>We proudly serve clients across the globe. International orders are shipped via DHL/India Post. Payments accepted via Stripe and PayPal. Shipping time: 7–15 business days depending on location.</p>
-  </section>
-
-  <!-- Contact -->
-  <section id="contact">
-    <h2>Contact Us</h2>
-    <p>Email: sartajcouture@gmail.com</p>
-    <p>WhatsApp: +91-XXXXXXXXXX</p>
-    <p>Location: Hyderabad, India</p>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Sartaj Couture. All rights reserved.</p>
-  </footer>
-
-  <!-- Intro removal -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
   <script>
     setTimeout(() => {
       document.querySelector('.intro-screen').style.display = 'none';
     }, 4000);
   </script>
+  <section id="faq" data-aos="fade-up">
+  <h2>Frequently Asked Questions</h2>
+  <details>
+    <summary><strong>Do you ship internationally?</strong></summary>
+    <p>Yes, we ship worldwide using trusted courier partners like DHL and India Post.</p>
+  </details>
+  <details>
+    <summary><strong>How do I send my measurements?</strong></summary>
+    <p>You can submit your measurements through our order form or schedule a virtual consultation for guided fitting.</p>
+  </details>
+  <details>
+    <summary><strong>How long does delivery take?</strong></summary>
+    <p>Within India: 7–10 days. International: 10–15 business days depending on the country.</p>
+  </details>
+</section>
+
+  <a href="#order" class="cta-button" style="position:fixed;bottom:20px;right:20px;z-index:999;background:#e4c590;color:#121212;padding:12px 20px;border-radius:40px;font-weight:bold;text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.3);">Book Now</a>
+
+  <div style="position: fixed; bottom: 90px; right: 20px; z-index: 999; display: flex; flex-direction: column; gap: 12px;">
+  <a href="https://wa.me/919999999999" target="_blank" style="background: none; border: none;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:40px; height:40px;">
+  </a>
+  <a href="https://instagram.com/sartajcouture" target="_blank" style="background: none; border: none;">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" style="width:40px; height:40px;">
+  </a>
+</div>
+
+<footer style="background:#1a1a1a;color:#e4c590;text-align:center;padding:40px 20px;margin-top:60px;font-size:14px;" data-aos="fade-up">
+  <p>&copy; 2025 Sartaj Couture. All rights reserved.</p>
+  <p>Designed by Rayyan Ali Patel</p>
+</footer>
+
 </body>
 </html>
+
